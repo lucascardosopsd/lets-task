@@ -2,26 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@media screen and (min-width: 320px) {
+  html {
+    font-size: calc(14px + 1 * ((100vw - 320px) / 680));
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media screen and (min-width: 1040px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@layer base {
+  section {
+    @apply min-h-[100vh];
+  }
+  h1 {
+    @apply text-5xl font-bold;
+  }
+
+  h2 {
+    @apply text-4xl font-bold;
+  }
+
+  h3 {
+    @apply text-3xl font-semibold;
+  }
+
+  h4 {
+    @apply text-2xl font-semibold;
+  }
+
+  h5 {
+    @apply text-xl font-semibold;
+  }
+
+  h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer utilities {
+  .max-width {
+    @apply max-w-[1920px] mx-auto px-[16px] tablet:px-[80px] desktop:px-[162px];
+  }
+
+  .section-padding {
+    @apply py-[30px] tablet:py-[40px] desktop:py-[60px];
+  }
+
+  .btn {
+    @apply flex items-center justify-center gap-2 rounded px-5 py-3.5 capitalize text-grey-700;
+  }
+
+  .btn-primary {
+    @apply text-zinc-800 bg-green-500;
+  }
+
+  .btn-primary-outline {
+    @apply text-green-500 border border-green-500;
+  }
+
+  input,
+  textarea {
+    @apply w-full rounded px-6 py-4 border border-green-500 outline-none text-sm;
+  }
 }
