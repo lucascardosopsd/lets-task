@@ -14,20 +14,22 @@ const Sidebar = () => {
   };
 
   return (
-    <>
+    <div className="h-full p-4 w-full">
       <div
-        className="absolute top-4 left-4 bg-zinc-800 flex items-center text-zinc-600 p-2 rounded-md tablet:hidden"
+        className={`absolute top-4 left-4 bg-zinc-800 flex items-center text-zinc-600 p-2 rounded-md tablet:hidden transition ${
+          isOpen ? "hidden" : "visible"
+        }`}
         onClick={toggle}
       >
         <MdChevronRight size="20" />
       </div>
       <div
-        className={`flex flex-col justify-between items-center box h-full w-1/2 tablet:w-1/6 text-zinc-400 absolute tablet:static transition ${
+        className={`flex flex-col justify-between items-center box h-[95%] my-auto top-0 bottom-0 left-5 tablet:h-full w-1/2 tablet:w-1/6 text-zinc-400 absolute tablet:static transition ${
           isOpen ? "translate-x-0" : "-translate-x-96"
         }`}
       >
         <div
-          className="flex flex-col space-y-2 items-center relative"
+          className="flex flex-col gap-2 items-center relative"
           onClick={toggle}
         >
           <MdChevronLeft
@@ -45,18 +47,18 @@ const Sidebar = () => {
           <p className="font-medium break-words">Nome Usuário</p>
         </div>
 
-        <ul className="space-y-4 w-full">
+        <ul className="gap-8 w-full">
           {sidebarLinks.map(({ icon, label, title }, index) => (
             <SidebarLink Icon={icon} title={title} label={label} key={index} />
           ))}
         </ul>
 
-        <div className="flex space-x-1 w-full px-10">
+        <div className="flex gap-1 w-full px-10">
           <MdOutlineLogout size="20" />
           <p>Sair</p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
