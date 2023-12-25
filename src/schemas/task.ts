@@ -1,6 +1,6 @@
 import { Schema, model, models } from "mongoose";
 
-const userSchema = new Schema({
+const taskSchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -21,6 +21,6 @@ const userSchema = new Schema({
   },
 });
 
-const User = models.User || model("User", userSchema);
+const Task = models.Task || model("Task", taskSchema);
 
-export default User;
+export default Task;
