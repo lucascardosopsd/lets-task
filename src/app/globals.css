@@ -65,7 +65,7 @@
   }
 
   .btn-primary {
-    @apply text-zinc-800 bg-green-500 hover:bg-green-700 transition;
+    @apply text-zinc-800 bg-green-500 border border-green-800 hover:bg-green-700 transition;
   }
 
   .btn-primary-outline {

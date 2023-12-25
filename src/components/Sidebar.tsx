@@ -5,9 +5,12 @@ import Image from "next/image";
 import { MdChevronLeft, MdChevronRight, MdOutlineLogout } from "react-icons/md";
 import SidebarLink from "./SidebarLink";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { data: session } = useSession();
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -17,15 +20,15 @@ const Sidebar = () => {
     <div className="h-full p-4 w-full">
       <div
         className={`absolute top-4 left-4 bg-zinc-800 flex items-center text-zinc-600 p-2 rounded-md tablet:hidden transition ${
-          isOpen ? "hidden" : "visible"
-        }`}
+          isOpen ? "hidden tablet:visible" : "visible"
+        } `}
         onClick={toggle}
       >
         <MdChevronRight size="20" />
       </div>
       <div
         className={`flex flex-col justify-between items-center box h-[95%] my-auto top-0 bottom-0 left-5 tablet:h-full w-1/2 tablet:w-1/6 text-zinc-400 absolute tablet:static transition ${
-          isOpen ? "translate-x-0" : "-translate-x-96"
+          isOpen ? "translate-x-0" : "-translate-x-96 tablet:translate-x-0"
         }`}
       >
         <div
@@ -38,7 +41,7 @@ const Sidebar = () => {
           />
           <div className="relative h-16 w-16">
             <Image
-              src="/images/fake-user.jpg"
+              src={session?.user?.image ?? "/images/fake-user"}
               className="rounded-full object-cover h-full w-full border border-green-500"
               fill
               alt="Foto usuário"

@@ -1,6 +1,6 @@
 import Logo from "@/components/Logo";
+import SignInGoogle from "@/components/SignInGoogle";
 import Image from "next/image";
-import { FaGoogle } from "react-icons/fa";
 
 export default function Login() {
   return (
@@ -11,9 +11,7 @@ export default function Login() {
         </div>
         <div className="flex flex-col w-full flex-1 items-center justify-center gap-4 bg-zinc-900 rounded-r">
           <Logo />
-          <button className="btn btn-primary-outline">
-            <FaGoogle /> Entrar com Google
-          </button>
+          <SignInGoogle />
         </div>
       </div>
     </main>
