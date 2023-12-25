@@ -15,6 +15,14 @@
 }
 
 @layer base {
+  * {
+    @apply box-border;
+  }
+
+  body {
+    @apply bg-zinc-950;
+  }
+
   section {
     @apply min-h-[100vh];
   }
@@ -62,6 +70,10 @@
 
   .btn-primary-outline {
     @apply text-green-500 border border-green-500;
+  }
+
+  .box {
+    @apply py-4 border border-zinc-800 bg-zinc-900 rounded-md;
   }
 
   input,
