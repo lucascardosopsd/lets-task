@@ -5,7 +5,7 @@ import Image from "next/image";
 import { MdChevronLeft, MdChevronRight, MdOutlineLogout } from "react-icons/md";
 import SidebarLink from "./SidebarLink";
 import { useState } from "react";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,7 +56,10 @@ const Sidebar = () => {
           ))}
         </ul>
 
-        <div className="flex gap-1 w-full px-10">
+        <div
+          className="flex gap-1 w-full px-10 hover:text-green-500 cursor-pointer"
+          onClick={() => signOut()}
+        >
           <MdOutlineLogout size="20" />
           <p>Sair</p>
         </div>
