@@ -5,7 +5,7 @@ import {
   MdNotificationImportant,
 } from "react-icons/md";
 
-export const navbarLinks = [
+export const sidebarLinks = [
   {
     label: "all",
     title: "Todas",

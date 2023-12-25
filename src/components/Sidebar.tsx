@@ -1,9 +1,9 @@
 "use client";
 
-import { navbarLinks } from "@/constants/navbar";
+import { sidebarLinks } from "@/constants/sidebar";
 import Image from "next/image";
 import { MdChevronLeft, MdOutlineLogout } from "react-icons/md";
-import NavbarLink from "./NavbarLink";
+import SidebarLink from "./SidebarLink";
 
 const Sidebar = () => {
   return (
@@ -25,8 +25,8 @@ const Sidebar = () => {
       </div>
 
       <ul className="space-y-4 w-full">
-        {navbarLinks.map(({ icon, label, title }, index) => (
-          <NavbarLink Icon={icon} title={title} label={label} key={index} />
+        {sidebarLinks.map(({ icon, label, title }, index) => (
+          <SidebarLink Icon={icon} title={title} label={label} key={index} />
         ))}
       </ul>
 
