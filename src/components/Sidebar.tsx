@@ -19,7 +19,7 @@ const Sidebar = () => {
   return (
     <>
       <div
-        className={`absolute top-2 left-2 bg-zinc-800 flex items-center text-zinc-600 p-2 rounded-md tablet:hidden transition ${
+        className={`absolute top-2 left-2 bg-zinc-800 flex items-center text-zinc-600 p-2 rounded-md tablet:hidden transition${
           isOpen ? "hidden tablet:visible" : "visible"
         } `}
         onClick={toggle}
@@ -27,7 +27,7 @@ const Sidebar = () => {
         <MdChevronRight size="20" />
       </div>
       <div
-        className={`flex flex-col justify-between items-center box !rounded-none tablet:rounded h-full my-auto w-full tablet:w-full text-zinc-400 absolute tablet:static transition ${
+        className={`flex flex-col justify-between items-center box !rounded-none tablet:rounded h-full my-auto w-full tablet:w-full text-zinc-400 absolute tablet:static transition tablet:max-w-52 ${
           isOpen ? "translate-x-0" : "-translate-x-full tablet:translate-x-0"
         }`}
       >
@@ -35,11 +35,9 @@ const Sidebar = () => {
           <MdChevronLeft
             size="25"
             className="text-zinc-700 tablet:hidden absolute right-2 top-2"
-          />
-          <div
-            className="flex flex-col gap-2 items-center relative"
             onClick={toggle}
-          >
+          />
+          <div className="flex flex-col gap-2 items-center relative">
             <div className="relative h-16 w-16">
               <Image
                 src={session?.user?.image ?? "/images/fake-user"}
@@ -54,7 +52,9 @@ const Sidebar = () => {
 
         <ul className="gap-8 w-full">
           {sidebarLinks.map(({ icon, label, title }, index) => (
-            <SidebarLink Icon={icon} title={title} label={label} key={index} />
+            <span onClick={toggle} key={index}>
+              <SidebarLink Icon={icon} title={title} label={label} />
+            </span>
           ))}
         </ul>
 
