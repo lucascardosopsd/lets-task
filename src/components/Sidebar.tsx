@@ -47,7 +47,7 @@ const Sidebar = () => {
               alt="Foto usuário"
             />
           </div>
-          <p className="font-medium break-words">Nome Usuário</p>
+          <p className="font-medium break-words">{session?.user?.name}</p>
         </div>
 
         <ul className="gap-8 w-full">
