@@ -1,9 +1,4 @@
-import {
-  MdBolt,
-  MdCheck,
-  MdHome,
-  MdNotificationImportant,
-} from "react-icons/md";
+import { MdCheck, MdHome, MdNotificationImportant } from "react-icons/md";
 
 export const sidebarLinks = [
   {
@@ -21,9 +16,9 @@ export const sidebarLinks = [
     title: "Feito",
     icon: MdCheck,
   },
-  {
-    label: "now",
-    title: "Agora!",
-    icon: MdBolt,
-  },
+  // {
+  //   label: "now",
+  //   title: "Hoje!",
+  //   icon: MdBolt,
+  // },
 ];

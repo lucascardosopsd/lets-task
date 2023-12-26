@@ -4,7 +4,7 @@ import Task from "@/schemas/task";
 import User from "@/schemas/user";
 import { getServerSession } from "next-auth";
 
-export default async function getTasks() {
+export default async function getTasks({ query = {} }: { query?: Object }) {
   await connectDb();
 
   const session = await getServerSession(authOptions);

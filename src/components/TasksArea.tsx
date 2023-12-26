@@ -5,9 +5,10 @@ import Modal from "./Modal";
 import TaskBody from "./formBodies/task";
 import { notify } from "@/tools/notify";
 import createTask from "@/services/tasks/create";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTaskForm } from "@/validators/task";
 import TaskCard from "./TaskCard";
+import useSidebarStore from "@/context/sidebar";
 
 interface TasksAreaProps {
   data: TaskProps[];
@@ -17,6 +18,22 @@ const TasksArea = ({ data }: TasksAreaProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const { register, formState, handleSubmit, control, reset } = useTaskForm();
+  const { currentLabel } = useSidebarStore();
+  const [filtered, setFiltered] = useState(data);
+
+  useEffect(() => {
+    if (currentLabel == "all") {
+      setFiltered([]);
+    }
+
+    if (currentLabel == "complete") {
+      setFiltered(data.filter((task: TaskProps) => task.complete));
+    }
+
+    if (currentLabel == "important") {
+      setFiltered(data.filter((task: TaskProps) => task.important));
+    }
+  }, [currentLabel]);
 
   const handleNewTask = async (data: TaskProps) => {
     try {
@@ -45,9 +62,9 @@ const TasksArea = ({ data }: TasksAreaProps) => {
         >
           +
         </button>
-        {data.map((task, index) => (
-          <TaskCard task={task} key={index} />
-        ))}
+        {!filtered.length
+          ? data.map((task, index) => <TaskCard task={task} key={index} />)
+          : filtered.map((task, index) => <TaskCard task={task} key={index} />)}
       </div>
 
       <Modal
