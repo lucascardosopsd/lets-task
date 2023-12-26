@@ -45,6 +45,7 @@ const Header = () => {
       </button>
 
       <Modal
+        loading={loading}
         body={
           <TaskBody
             formState={formState}

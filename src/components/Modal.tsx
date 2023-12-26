@@ -49,7 +49,9 @@ const Modal = ({
           Cancelar
         </button>
         <button
-          className="btn btn-primary w-full"
+          className={`btn btn-primary w-full ${
+            loading && "pointer-events-none cursor-not-allowed"
+          }`}
           disabled={loading}
           type="submit"
         >
