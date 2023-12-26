@@ -5,7 +5,7 @@ import TaskBody from "./formBodies/task";
 import { useState } from "react";
 import { TaskProps } from "@/app/types/task";
 import { notify } from "@/tools/notify";
-import createTask from "@/services/task";
+import createTask from "@/services/tasks/create";
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
