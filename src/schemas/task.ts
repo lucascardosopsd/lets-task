@@ -5,7 +5,7 @@ const taskSchema = new Schema({
     type: String,
     required: true,
   },
-  descriptiion: {
+  description: {
     type: String,
     required: true,
   },
@@ -21,6 +21,6 @@ const taskSchema = new Schema({
   },
 });
 
-const Task = models.Task || model("Task", taskSchema);
+const Task = models?.Task || model("Task", taskSchema);
 
 export default Task;

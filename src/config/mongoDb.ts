@@ -1,3 +1,5 @@
+"use server";
+
 import mongoose from "mongoose";
 
 const connectDb = async () => {
@@ -5,7 +7,7 @@ const connectDb = async () => {
     await mongoose.connect(process.env.MONGO_URI as string);
     console.log("Mongo Connected");
   } catch (error) {
-    throw new Error("Error when connect mongodb");
+    throw new Error("Error when connect mongo");
   }
 };
 
