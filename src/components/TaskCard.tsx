@@ -1,6 +1,6 @@
 "use client";
 
-import { TaskProps } from "@/app/types/task";
+import { TaskProps } from "@/types/task";
 import Modal from "./Modal";
 import { useState } from "react";
 import { notify } from "@/tools/notify";

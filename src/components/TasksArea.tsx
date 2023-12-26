@@ -1,6 +1,6 @@
 "use client";
 
-import { TaskProps } from "@/app/types/task";
+import { TaskProps } from "@/types/task";
 import Modal from "./Modal";
 import TaskBody from "./formBodies/Task";
 import { notify } from "@/tools/notify";
@@ -35,7 +35,7 @@ const TasksArea = ({ data }: TasksAreaProps) => {
     }
   }, [currentLabel]);
 
-  const handleNewTask = async (data: TaskProps) => {
+  const handleNewTask = async (data: Omit<TaskProps, "_id" | "userId">) => {
     try {
       setLoading(true);
 

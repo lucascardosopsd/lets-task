@@ -1,4 +1,4 @@
-import { TaskProps } from "@/app/types/task";
+import { TaskProps } from "@/types/task";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
