@@ -1,4 +1,4 @@
-import { Schema, model, models } from "mongoose";
+import mongoose, { Schema, model, models } from "mongoose";
 
 const taskSchema = new Schema(
   {
@@ -19,6 +19,10 @@ const taskSchema = new Schema(
       type: Boolean,
       required: true,
       default: false,
+    },
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
     },
   },
   {

@@ -1,8 +1,8 @@
-import connectDb from "@/config/mongoDb";
+import clientPromise from "@/lib/mongoDb";
 import Task from "@/schemas/task";
 
 export default async function getTasks() {
-  await connectDb();
+  await clientPromise;
 
   try {
     return await Task.find().select("title description complete important");
