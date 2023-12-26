@@ -3,4 +3,5 @@ export interface TaskProps {
   description: string;
   complete: boolean;
   important: boolean;
+  userId: string;
 }

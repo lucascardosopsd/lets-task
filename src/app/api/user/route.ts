@@ -1,4 +1,4 @@
-import clientPromise from "@/lib/mongoDb";
+import clientPromise from "@/lib/clientToAuth";
 import User from "@/schemas/user";
 import { NextApiResponse } from "next";
 

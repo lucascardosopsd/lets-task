@@ -1,5 +1,5 @@
 import TasksArea from "@/components/TasksArea";
-import getTasks from "@/services/tasks/getTasks";
+import getTasks from "@/services/tasks/get";
 
 export default async function Home() {
   const tasks = await getTasks();
