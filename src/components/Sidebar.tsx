@@ -40,7 +40,7 @@ const Sidebar = () => {
           <div className="flex flex-col gap-2 items-center relative">
             <div className="relative h-16 w-16">
               <Image
-                src={session?.user?.image ?? "/images/fake-user"}
+                src={session?.user?.image ?? "/images/fake-user.jpg"}
                 className="rounded-full object-cover h-full w-full border border-green-500"
                 fill
                 alt="Foto usuário"
