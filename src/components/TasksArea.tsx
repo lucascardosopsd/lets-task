@@ -7,6 +7,7 @@ import { notify } from "@/tools/notify";
 import createTask from "@/services/tasks/create";
 import { useState } from "react";
 import { useTaskForm } from "@/validators/task";
+import TaskCard from "./TaskCard";
 
 interface TasksAreaProps {
   data: TaskProps[];
@@ -45,12 +46,7 @@ const TasksArea = ({ data }: TasksAreaProps) => {
           +
         </button>
         {data.map((task, index) => (
-          <div key={index} className="h-48 w-48 box p-4 text-zinc-100">
-            <div className="text-green-500">{task.title}</div>
-            <p className="w-full h-36 line-clamp-1 break-words">
-              {task.description}
-            </p>
-          </div>
+          <TaskCard task={task} key={index} />
         ))}
       </div>
 

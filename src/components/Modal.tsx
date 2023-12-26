@@ -10,7 +10,7 @@ interface ModalProps {
   onCancel?: () => void;
   isOpen: boolean;
   onClose: () => void;
-  header: string | ReactElement;
+  header?: string | ReactElement;
   loading?: boolean;
 }
 
@@ -32,7 +32,7 @@ const Modal = ({
     >
       <div className="relative flex justify-center border-b border-zinc-800 text-zinc-200 py-4">
         <MdClose
-          className="absolute top-3 right-3 text-zinc-600 hover:text-green-500 cursor-pointer transition"
+          className="absolute top-0 right-3 text-zinc-600 hover:text-green-500 cursor-pointer transition"
           size="20"
           onClick={onClose}
         >
