@@ -1,3 +1,4 @@
+import { TaskProps } from "@/app/types/task";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -9,6 +10,8 @@ export const taskSchema = yup.object({
   important: yup.boolean().default(false),
 });
 
-export const useTaskForm = () => {
-  return useForm({ resolver: yupResolver(taskSchema) });
+export const useTaskForm = (
+  defaultValues?: Omit<TaskProps, "_id" | "userId">
+) => {
+  return useForm({ resolver: yupResolver(taskSchema), defaultValues });
 };

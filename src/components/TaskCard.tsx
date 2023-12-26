@@ -5,15 +5,40 @@ import Modal from "./Modal";
 import { useState } from "react";
 import { notify } from "@/tools/notify";
 import deleteTask from "@/services/tasks/delete";
+import { useTaskForm } from "@/validators/task";
+import TaskBody from "./formBodies/Task";
+import { FieldValues } from "react-hook-form";
+import updateTask from "@/services/tasks/update";
 
 const TaskCard = ({ task }: { task: TaskProps }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isUpdateodalOpen, setIsUpdateModalOpen] = useState(false);
+
+  const { register, formState, handleSubmit, control, reset } =
+    useTaskForm(task);
+
+  const handleUpdateTask = async (data: FieldValues) => {
+    try {
+      notify("info", "Atualizando");
+
+      await updateTask(data, task?._id);
+
+      notify("success", "Atualizando");
+
+      setIsUpdateModalOpen(false);
+    } catch (error) {
+      notify("error", "Erro ao atualizar tarefa");
+    }
+  };
 
   const handleDeleteTask = async () => {
     try {
       notify("info", "Apagando");
-      setIsOpen(false);
+
       await deleteTask(task?._id);
+
+      setIsDeleteModalOpen(false);
+
       notify("success", "Apagado");
     } catch (error) {
       notify("error", "Erro ao deletar tarefa");
@@ -23,10 +48,16 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
   return (
     <>
       <div className="h-48 w-48 box p-4 text-zinc-100 relative">
-        <span
-          className="w-4 h-4 rounded-full bg-red-500 right-2 top-2 absolute hover:bg-red-800 cursor-pointer transition"
-          onClick={() => setIsOpen(true)}
-        />
+        <div className="w-full flex justify-end gap-2">
+          <span
+            className="w-4 h-4 rounded-full bg-yellow-500 hover:bg-yellow-800 cursor-pointer transition"
+            onClick={() => setIsUpdateModalOpen(true)}
+          />
+          <span
+            className="w-4 h-4 rounded-full bg-red-500 hover:bg-red-800 cursor-pointer transition"
+            onClick={() => setIsDeleteModalOpen(true)}
+          />
+        </div>
 
         <div className={`text-green-500 ${task.complete && "text-zinc-700"}`}>
           {task.title}
@@ -51,16 +82,32 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
           </span>
         )}
       </div>
+      {/* Update Modal */}
 
+      <Modal
+        body={
+          <TaskBody
+            formState={formState}
+            register={register}
+            control={control}
+          />
+        }
+        onSubmit={handleSubmit(handleUpdateTask)}
+        isOpen={isUpdateodalOpen}
+        onClose={() => setIsUpdateModalOpen(false)}
+        header="Atualizar tarefa"
+      />
+
+      {/* Delete Modal */}
       <Modal
         body={
           <span className="flex items-center justify-center text-zinc-100">
             Apagar
           </span>
         }
-        isOpen={isOpen}
+        isOpen={isDeleteModalOpen}
         onSubmit={handleDeleteTask}
-        onClose={() => setIsOpen(false)}
+        onClose={() => setIsDeleteModalOpen(false)}
         header={task.title}
       />
     </>
