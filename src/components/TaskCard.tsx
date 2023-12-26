@@ -1,3 +1,5 @@
+"use client";
+
 import { TaskProps } from "@/app/types/task";
 import Modal from "./Modal";
 import { useState } from "react";
@@ -11,7 +13,7 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
     try {
       notify("info", "Apagando");
       setIsOpen(false);
-      await deleteTask(task?.id);
+      await deleteTask(task?._id);
       notify("success", "Apagado");
     } catch (error) {
       notify("error", "Erro ao deletar tarefa");
@@ -25,10 +27,29 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
           className="w-4 h-4 rounded-full bg-red-500 right-2 top-2 absolute hover:bg-red-800 cursor-pointer transition"
           onClick={() => setIsOpen(true)}
         />
-        <div className="text-green-500">{task.title}</div>
-        <p className="w-full h-36 line-clamp-1 break-words">
+
+        <div className={`text-green-500 ${task.complete && "text-zinc-700"}`}>
+          {task.title}
+        </div>
+        <p
+          className={`line-clamp-1 break-all ${
+            task.complete && "text-zinc-700"
+          }`}
+        >
           {task.description}
         </p>
+
+        {task.important && (
+          <span className="absolute bottom-0 left-0 rounded-b text-zinc-800 font-medium w-full text-center bg-yellow-500">
+            Importante
+          </span>
+        )}
+
+        {task.complete && (
+          <span className="absolute bottom-0 left-0 rounded-b text-zinc-800 font-medium w-full text-center bg-zinc-700 border-t border-zinc-600">
+            completo
+          </span>
+        )}
       </div>
 
       <Modal
@@ -40,7 +61,7 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
         isOpen={isOpen}
         onSubmit={handleDeleteTask}
         onClose={() => setIsOpen(false)}
-        onCancel={() => setIsOpen(false)}
+        header={task.title}
       />
     </>
   );

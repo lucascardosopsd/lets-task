@@ -48,6 +48,8 @@ const TasksArea = ({ data }: TasksAreaProps) => {
       reset();
 
       notify("success", "Tarefa criada");
+
+      setLoading(false);
     } catch (error) {
       notify("error", "Erro ao criar tarefa");
     }
