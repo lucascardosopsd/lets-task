@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import TasksArea from "@/components/TasksArea";
 import getTasks from "@/services/tasks/getTasks";
 
@@ -7,7 +6,6 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col h-full w-full relative">
-      <Header />
       <TasksArea data={tasks} />
     </div>
   );

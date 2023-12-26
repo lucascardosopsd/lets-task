@@ -25,9 +25,9 @@ const Modal = ({
 }: ModalProps) => {
   return (
     <form
-      className={` ${
-        isOpen ? "flex" : "hidden"
-      } absolute h-[80%] w-[600px] top-0 bottom-0 right-0 left-0 mx-auto my-auto flex-col gap-2 bg-zinc-900 rounded box !pb-0`}
+      className={`flex transition ${
+        isOpen ? "translate-y-0" : "-translate-y-[1000px]"
+      } absolute h-[600px] w-[600px] top-0 bottom-0 right-0 left-0 mx-auto my-auto flex-col gap-2 bg-zinc-900 rounded box !pb-0`}
       onSubmit={onSubmit}
     >
       <div className="relative flex justify-center border-b border-zinc-800 text-zinc-200 py-4">
@@ -52,7 +52,6 @@ const Modal = ({
           className={`btn btn-primary w-full ${
             loading && "pointer-events-none cursor-not-allowed"
           }`}
-          disabled={loading}
           type="submit"
         >
           Enviar
