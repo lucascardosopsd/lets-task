@@ -89,7 +89,7 @@
   }
 
   .btn {
-    @apply flex items-center justify-center gap-2 rounded text-base mobile:text-sm p-2 capitalize border font-medium;
+    @apply flex items-center justify-center gap-2 rounded text-lg mobile:text-sm p-2 mobile:p-5 capitalize border font-medium;
   }
 
   .btn-primary {
