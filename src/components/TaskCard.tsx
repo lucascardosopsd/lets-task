@@ -9,6 +9,10 @@ import { useTaskForm } from "@/validators/task";
 import TaskBody from "./formBodies/Task";
 import { FieldValues } from "react-hook-form";
 import updateTask from "@/services/tasks/update";
+import { IoClose } from "react-icons/io5";
+import { MdEdit } from "react-icons/md";
+import { FaCheck } from "react-icons/fa";
+import { FaArrowRotateLeft } from "react-icons/fa6";
 
 const TaskCard = ({ task }: { task: TaskProps }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -45,9 +49,9 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
     }
   };
 
-  const handleCompleteTask = async () => {
+  const handleToggleCompleteTask = async () => {
     try {
-      await updateTask({ ...task, complete: true }, task?._id);
+      await updateTask({ ...task, complete: !task.complete }, task?._id);
     } catch (error) {
       notify("error", "Erro ao atualizar tarefa");
     }
@@ -57,18 +61,35 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
     <>
       <div className="w-full h-56 mobile:h-48 mobile:w-48 box p-4 text-zinc-100 relative hover:!border-green-500 transition">
         <div className="w-full flex justify-end gap-4 mobile:gap-2">
-          <span
-            className="h-6 w-6 mobile:w-4 mobile:h-4 rounded-full bg-yellow-500 hover:bg-yellow-800 cursor-pointer transition"
-            onClick={() => setIsUpdateModalOpen(true)}
-          />
-          <span
-            className="h-6 w-6 mobile:w-4 mobile:h-4 rounded-full bg-green-500 hover:bg-green-800 cursor-pointer transition"
-            onClick={() => handleCompleteTask()}
-          />
-          <span
-            className="h-6 w-6 mobile:w-4 mobile:h-4 rounded-full bg-red-500 hover:bg-red-800 cursor-pointer transition"
-            onClick={() => setIsDeleteModalOpen(true)}
-          />
+          <span className="flex items-center justify-center">
+            <span
+              className="h-6 w-6 mobile:w-4 mobile:h-4 rounded bg-yellow-500 hover:bg-yellow-800 cursor-pointer transition"
+              onClick={() => setIsUpdateModalOpen(true)}
+            />
+            <MdEdit className="absolute text-zinc-900 pointer-events-none" />
+          </span>
+
+          <span className="flex items-center justify-center">
+            <span
+              className="h-6 w-6 mobile:w-4 mobile:h-4 rounded bg-red-500 hover:bg-red-800 cursor-pointer transition"
+              onClick={() => setIsDeleteModalOpen(true)}
+            />
+            <IoClose className="absolute text-lg text-zinc-900 pointer-events-none" />
+          </span>
+
+          <span className="flex items-center justify-center">
+            <span
+              className={`h-6 w-6 mobile:w-4 mobile:h-4 rounded bg-green-500 hover:bg-green-800 cursor-pointer transition ${
+                task.complete && "bg-zinc-700 hover:bg-zinc-800"
+              }`}
+              onClick={() => handleToggleCompleteTask()}
+            />
+            {!task.complete ? (
+              <FaCheck className="absolute text-sm text-zinc-900 pointer-events-none" />
+            ) : (
+              <FaArrowRotateLeft className="absolute text-sm text-zinc-900 pointer-events-none" />
+            )}
+          </span>
         </div>
 
         <div
