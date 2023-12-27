@@ -47,7 +47,7 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
 
   return (
     <>
-      <div className="w-full h-56 mobile:h-48 mobile:w-48 box p-4 text-zinc-100 relative">
+      <div className="w-full h-56 mobile:h-48 mobile:w-48 box p-4 text-zinc-100 relative hover:!border-green-500 transition">
         <div className="w-full flex justify-end gap-4 mobile:gap-2">
           <span
             className="h-6 w-6 mobile:w-4 mobile:h-4 rounded-full bg-yellow-500 hover:bg-yellow-800 cursor-pointer transition"
@@ -75,7 +75,7 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
         </p>
 
         {task.important && (
-          <span className="absolute bottom-0 left-0 text-xl mobile:text-lg rounded-b text-zinc-800 font-medium w-full text-center bg-yellow-500">
+          <span className="absolute bottom-0 left-0 text-xl mobile:text-lg rounded-b text-zinc-800 font-medium w-full text-center bg-green-500">
             Importante
           </span>
         )}
