@@ -1,6 +1,6 @@
 "use server";
 import { TaskProps } from "@/types/task";
-import connectDb from "@/lib/mongoDb";
+import { connectDb } from "@/lib/mongoDb";
 import Task from "@/schemas/task";
 import { revalidatePath } from "next/cache";
 

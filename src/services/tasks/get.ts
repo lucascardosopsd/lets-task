@@ -1,5 +1,5 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import connectDb from "@/lib/mongoDb";
+import { connectDb } from "@/lib/mongoDb";
 import Task from "@/schemas/task";
 import User from "@/schemas/user";
 import { getServerSession } from "next-auth";

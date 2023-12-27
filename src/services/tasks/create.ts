@@ -1,11 +1,11 @@
 "use server";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { TaskProps } from "@/types/task";
-import connectDb from "@/lib/mongoDb";
 import Task from "@/schemas/task";
 import User from "@/schemas/user";
 import { getServerSession } from "next-auth";
 import { revalidatePath } from "next/cache";
+import { connectDb } from "@/lib/mongoDb";
 
 export default async function createTask(
   data: Omit<TaskProps, "_id" | "userId">
