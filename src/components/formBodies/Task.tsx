@@ -33,7 +33,7 @@ const TaskBody = ({ register, formState, control }: TaskBodyProps) => {
       </div>
 
       <div className="box flex justify-around items-center gap-2 p-2">
-        <div className="flex items-center">
+        <div className="flex flex-col mobile:flex-row items-center">
           <Controller
             name="complete"
             control={control}
@@ -44,7 +44,7 @@ const TaskBody = ({ register, formState, control }: TaskBodyProps) => {
           <p>Completo</p>
         </div>
 
-        <div className="flex items-center">
+        <div className="flex flex-col mobile:flex-row items-center">
           <Controller
             name="important"
             control={control}
