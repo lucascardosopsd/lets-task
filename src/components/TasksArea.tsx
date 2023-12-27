@@ -57,7 +57,7 @@ const TasksArea = ({ data }: TasksAreaProps) => {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center mobile:justify-start p-4 gap-4 h-screen overflow-y-auto relative pb-40">
+      <div className="flex flex-wrap justify-center mobile:justify-start p-4 gap-4 h-screen overflow-y-auto  pb-40">
         <span className="fixed mobile:absolute left-0 bottom-0 h-40 w-full bg-gradient-to-t from-zinc-950 to-transparent z-50 pointer-events-none" />
 
         <button
