@@ -1,9 +1,10 @@
 "use client";
+import { labelOptions } from "@/constants/sidebar";
 import useSidebarStore from "@/context/sidebar";
 import { IconType } from "react-icons";
 
 interface NavbarLinkProps {
-  label: "important" | "all" | "now";
+  label: labelOptions;
   title: string;
   Icon: IconType;
   classname?: string;

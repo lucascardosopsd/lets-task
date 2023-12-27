@@ -1,6 +1,15 @@
+import { IconType } from "react-icons";
 import { MdCheck, MdHome, MdNotificationImportant } from "react-icons/md";
 
-export const sidebarLinks = [
+export type labelOptions = "all" | "important" | "now" | "complete";
+
+interface SidebarLink {
+  label: labelOptions;
+  title: string;
+  icon: IconType;
+}
+
+export const sidebarLinks: SidebarLink[] = [
   {
     label: "all",
     title: "Todas",
