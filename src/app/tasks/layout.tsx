@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 const layout = ({ children }: { children: ReactNode }) => {
   return (
     // <ProtectRoute>
-    <div className="flex h-screen">
+    <div className="mobile:flex h-screen">
       <Sidebar />
       {children}
     </div>

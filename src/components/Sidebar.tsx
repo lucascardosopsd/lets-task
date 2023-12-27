@@ -8,7 +8,7 @@ import { useState } from "react";
 import { signOut, useSession } from "next-auth/react";
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const { data: session } = useSession();
 
@@ -19,15 +19,15 @@ const Sidebar = () => {
   return (
     <>
       <div
-        className={`absolute mobile:static z-50 top-2 left-2 bg-zinc-800 flex items-center text-zinc-600 p-2 rounded-md mobile:hidden transition ${
+        className={`absolute mobile:static top-2 left-0 bottom-2 my-auto h-20 w-5 bg-zinc-800 flex items-center text-zinc-600 rounded-r-md mobile:hidden transition z-50 ${
           isOpen ? "hidden mobile:visible" : "visible"
         } `}
         onClick={toggle}
       >
-        <MdChevronRight size="20" />
+        <MdChevronRight size="18" />
       </div>
       <div
-        className={`flex flex-col justify-between items-center box !rounded-none mobile:rounded h-full my-auto w-full mobile:w-full text-zinc-400 absolute mobile:static transition mobile:max-w-52 ${
+        className={`flex flex-col justify-between items-center box !rounded-none mobile:rounded h-full my-auto w-full mobile:w-full text-zinc-400 absolute mobile:static transition mobile:max-w-52 z-50 ${
           isOpen ? "translate-x-0" : "-translate-x-full mobile:translate-x-0"
         }`}
       >

@@ -56,21 +56,18 @@ const TasksArea = ({ data }: TasksAreaProps) => {
   };
 
   return (
-    <>
-      <div className="flex flex-wrap justify-center mobile:justify-start p-4 gap-4 h-screen overflow-y-auto  pb-40">
-        <span className="fixed mobile:absolute left-0 bottom-0 h-40 w-full bg-gradient-to-t from-zinc-950 to-transparent z-50 pointer-events-none" />
+    <div className="flex flex-wrap justify-center mobile:justify-start p-4 gap-4 h-screen overflow-y-auto pb-40">
+      <span className="fixed mobile:absolute left-0 bottom-0 h-40 w-full bg-gradient-to-t from-zinc-950 to-transparent z-50 pointer-events-none" />
 
-        <button
-          onClick={() => setIsModalOpen(true)}
-          className="absolute mobile:static bottom-2 right-8 flex items-center justify-center rounded-full mobile:rounded text-zinc-600 border border-zinc-600 h-20 w-20 mobile:h-48 mobile:w-48 text-6xl font-extralight hover:border-green-500 hover:text-green-500 bg-zinc-950 mobile:bg-transparent transition"
-        >
-          +
-        </button>
-        {!filtered.length
-          ? data.map((task, index) => <TaskCard task={task} key={index} />)
-          : filtered.map((task, index) => <TaskCard task={task} key={index} />)}
-      </div>
-
+      <button
+        onClick={() => setIsModalOpen(true)}
+        className="absolute mobile:static bottom-2 right-8 flex items-center justify-center rounded-full mobile:rounded text-green-500 mobiletext-zinc-600 border mobile:border-zinc-600 border-green-500 h-20 w-20 mobile:h-48 mobile:w-48 text-6xl font-extralight hover:border-green-500 hover:text-green-500 bg-zinc-950 mobile:bg-transparent transition z-50"
+      >
+        +
+      </button>
+      {!filtered.length
+        ? data.map((task, index) => <TaskCard task={task} key={index} />)
+        : filtered.map((task, index) => <TaskCard task={task} key={index} />)}
       <Modal
         loading={loading}
         body={
@@ -85,7 +82,7 @@ const TasksArea = ({ data }: TasksAreaProps) => {
         onClose={() => setIsModalOpen(false)}
         header="Criar nova tarefa"
       />
-    </>
+    </div>
   );
 };
 
