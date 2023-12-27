@@ -8,7 +8,7 @@ import { useState } from "react";
 import { signOut, useSession } from "next-auth/react";
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const { data: session } = useSession();
 
