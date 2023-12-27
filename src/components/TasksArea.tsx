@@ -60,7 +60,7 @@ const TasksArea = ({ data }: TasksAreaProps) => {
       <div className="flex flex-wrap justify-center mobile:justify-start p-4 gap-4 h-screen overflow-y-auto">
         <button
           onClick={() => setIsModalOpen(true)}
-          className="flex items-center justify-center rounded text-zinc-600 border border-zinc-600 h-48 w-48 text-6xl font-extralight hover:border-green-500 hover:text-green-500 transition"
+          className="absolute bottom-2 right-8 flex items-center justify-center rounded-full mobile:rounded text-zinc-600 border border-zinc-600 h-20 w-20 mobile:h-48 mobile:w-48 text-6xl font-extralight hover:border-green-500 hover:text-green-500 mobile:bg-zinc-950 transition"
         >
           +
         </button>
