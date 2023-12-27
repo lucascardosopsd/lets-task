@@ -1,11 +1,11 @@
-import clientPromise from "@/lib/clientToAuth";
+import { connectDb } from "@/lib/mongoDb";
 import User from "@/schemas/user";
 import { NextApiResponse } from "next";
 
 export async function POST(req: Request, res: NextApiResponse) {
   const { name, email } = await req.json();
 
-  await clientPromise;
+  await connectDb();
 
   await User.create({ name, email });
 
