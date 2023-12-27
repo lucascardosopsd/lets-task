@@ -1,5 +1,4 @@
 "use client";
-
 import { TaskProps } from "@/types/task";
 import Modal from "./Modal";
 import { useState } from "react";
@@ -9,10 +8,10 @@ import { useTaskForm } from "@/validators/task";
 import { FieldValues } from "react-hook-form";
 import updateTask from "@/services/tasks/update";
 import { IoClose } from "react-icons/io5";
-import { MdEdit } from "react-icons/md";
 import { FaCheck } from "react-icons/fa";
 import { FaArrowRotateLeft } from "react-icons/fa6";
 import UpdateTaskBody from "./formBodies/UpdateTask";
+import { FaExclamation } from "react-icons/fa6";
 
 const TaskCard = ({ task }: { task: TaskProps }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -57,16 +56,27 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
     }
   };
 
+  const handleToggleImportantTask = async () => {
+    try {
+      await updateTask({ ...task, complete: !task.complete }, task?._id);
+    } catch (error) {
+      notify("error", "Erro ao atualizar tarefa");
+    }
+  };
+
   return (
     <>
-      <div className="w-full h-56 mobile:h-48 mobile:w-48 box p-4 text-zinc-100 relative hover:!border-green-500 transition">
+      <div
+        className="w-full h-56 mobile:h-48 mobile:w-48 box p-4 text-zinc-100 relative hover:!border-green-500 transition cursor-pointer"
+        onClick={() => setIsUpdateModalOpen(true)}
+      >
         <div className="w-full flex justify-end gap-4 mobile:gap-2">
           <span className="flex items-center justify-center">
             <span
               className="h-6 w-6 mobile:w-4 mobile:h-4 rounded bg-yellow-500 hover:bg-yellow-800 cursor-pointer transition"
-              onClick={() => setIsUpdateModalOpen(true)}
+              onClick={() => handleToggleImportantTask()}
             />
-            <MdEdit className="absolute text-zinc-900 pointer-events-none" />
+            <FaExclamation className="absolute text-zinc-900 pointer-events-none" />
           </span>
 
           <span className="flex items-center justify-center">
@@ -108,7 +118,7 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
         </p>
 
         {task.important && (
-          <span className="absolute bottom-0 left-0 text-xl mobile:text-lg rounded-b text-zinc-800 font-medium w-full text-center bg-green-500">
+          <span className="absolute bottom-0 left-0 text-xl mobile:text-lg rounded-b text-zinc-100 font-medium w-full text-center bg-green-500">
             Importante
           </span>
         )}
