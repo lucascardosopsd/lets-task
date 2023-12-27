@@ -31,8 +31,7 @@ const Modal = ({
       >
         <div className="relative flex justify-center border-b border-zinc-800 text-zinc-200 py-4">
           <MdClose
-            className="absolute top-0 right-3 text-zinc-600 hover:text-green-500 cursor-pointer transition"
-            size="20"
+            className="absolute top-0 right-3 text-zinc-600 hover:text-green-500 cursor-pointer transition text-4xl mobile:text-xl"
             onClick={onClose}
           >
             X
