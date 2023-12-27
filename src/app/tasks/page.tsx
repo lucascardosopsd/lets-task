@@ -4,11 +4,12 @@ import getTasks from "@/services/tasks/get";
 
 export default async function Home() {
   const tasks = await getTasks({});
+  const parsedTasks = JSON.parse(tasks);
 
   return (
     <div className="flex flex-1 flex-col h-full w-full relative">
       <Header />
-      <TasksArea data={JSON.parse(tasks)} />
+      <TasksArea data={parsedTasks} />
     </div>
   );
 }
