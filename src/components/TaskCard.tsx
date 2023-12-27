@@ -22,8 +22,6 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
 
   const handleUpdateTask = async (data: FieldValues) => {
     try {
-      notify("info", "Atualizando");
-
       await updateTask(data, task?._id);
 
       notify("success", "Atualizando");
@@ -36,8 +34,6 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
 
   const handleDeleteTask = async () => {
     try {
-      notify("info", "Apagando");
-
       await deleteTask(task?._id);
 
       setIsDeleteModalOpen(false);
