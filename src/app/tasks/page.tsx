@@ -8,7 +8,7 @@ export default async function Home() {
   return (
     <div className="flex flex-1 flex-col h-full w-full relative">
       <Header />
-      <TasksArea data={tasks} />
+      <TasksArea data={JSON.parse(tasks)} />
     </div>
   );
 }

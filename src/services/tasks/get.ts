@@ -12,10 +12,12 @@ export default async function getTasks({ query = {} }: { query?: Object }) {
   const userId = await User.findOne({ email: session?.user?.email }, "id");
 
   try {
-    return await Task.find(
+    const tasks =  await Task.find(
       { userId },
       "id title description complete important userId"
     );
+
+    return JSON.stringify(tasks)
   } catch (error) {
     throw new Error("Error when get tasks");
   }
