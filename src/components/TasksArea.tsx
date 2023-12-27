@@ -65,7 +65,7 @@ const TasksArea = ({ data }: TasksAreaProps) => {
       >
         +
       </button>
-      {!filtered.length
+      {!filtered.length && currentLabel == "all"
         ? data.map((task, index) => <TaskCard task={task} key={index} />)
         : filtered.map((task, index) => <TaskCard task={task} key={index} />)}
       <Modal
