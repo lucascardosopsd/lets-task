@@ -1,9 +1,12 @@
 "use client";
 import deleteTasksCompleted from "@/services/tasks/deleteComplete";
+import { notify } from "@/tools/notify";
 
 const Header = () => {
   const handleDeleteComplete = async () => {
-    deleteTasksCompleted();
+    notify("info", "Apagando completos");
+    await deleteTasksCompleted();
+    notify("success", "Apagados");
   };
 
   return (
