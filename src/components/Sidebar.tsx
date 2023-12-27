@@ -19,22 +19,22 @@ const Sidebar = () => {
   return (
     <>
       <div
-        className={`absolute top-2 left-2 bg-zinc-800 flex items-center text-zinc-600 p-2 rounded-md tablet:hidden transition z-20 ${
-          isOpen ? "hidden tablet:visible" : "visible"
+        className={`absolute top-2 left-2 bg-zinc-800 flex items-center text-zinc-600 p-2 rounded-md mobile:hidden transition ${
+          isOpen ? "hidden mobile:visible" : "visible"
         } `}
         onClick={toggle}
       >
         <MdChevronRight size="20" />
       </div>
       <div
-        className={`flex flex-col justify-between items-center box !rounded-none tablet:rounded h-full my-auto w-full tablet:w-full text-zinc-400 absolute tablet:static transition tablet:max-w-52 ${
-          isOpen ? "translate-x-0" : "-translate-x-full tablet:translate-x-0"
+        className={`flex flex-col justify-between items-center box !rounded-none mobile:rounded h-full my-auto w-full mobile:w-full text-zinc-400 absolute mobile:static transition mobile:max-w-52 ${
+          isOpen ? "translate-x-0" : "-translate-x-full mobile:translate-x-0"
         }`}
       >
         <span className="flex items-center justify-center w-full">
           <MdChevronLeft
             size="25"
-            className="text-zinc-700 tablet:hidden absolute right-2 top-2"
+            className="text-zinc-700 mobile:hidden absolute right-2 top-2"
             onClick={toggle}
           />
           <div className="flex flex-col gap-2 items-center relative">

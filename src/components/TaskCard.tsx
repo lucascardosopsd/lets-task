@@ -47,7 +47,7 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
 
   return (
     <>
-      <div className="h-48 w-48 box p-4 text-zinc-100 relative -z-50">
+      <div className="h-48 w-48 box p-4 text-zinc-100 relative">
         <div className="w-full flex justify-end gap-2">
           <span
             className="w-4 h-4 rounded-full bg-yellow-500 hover:bg-yellow-800 cursor-pointer transition"
