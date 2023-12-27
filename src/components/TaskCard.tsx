@@ -47,19 +47,23 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
 
   return (
     <>
-      <div className="h-48 w-48 box p-4 text-zinc-100 relative">
-        <div className="w-full flex justify-end gap-2">
+      <div className="w-full h-56 mobile:h-48 mobile:w-48 box p-4 text-zinc-100 relative">
+        <div className="w-full flex justify-end gap-4 mobile:gap-2">
           <span
-            className="w-4 h-4 rounded-full bg-yellow-500 hover:bg-yellow-800 cursor-pointer transition"
+            className="h-6 w-6 mobile:w-4 mobile:h-4 rounded-full bg-yellow-500 hover:bg-yellow-800 cursor-pointer transition"
             onClick={() => setIsUpdateModalOpen(true)}
           />
           <span
-            className="w-4 h-4 rounded-full bg-red-500 hover:bg-red-800 cursor-pointer transition"
+            className="h-6 w-6 mobile:w-4 mobile:h-4 rounded-full bg-red-500 hover:bg-red-800 cursor-pointer transition"
             onClick={() => setIsDeleteModalOpen(true)}
           />
         </div>
 
-        <div className={`text-green-500 ${task.complete && "text-zinc-700"}`}>
+        <div
+          className={`text-green-500 text-xl mobile:text-lg ${
+            task.complete && "text-zinc-700"
+          }`}
+        >
           {task.title}
         </div>
         <p
@@ -71,13 +75,13 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
         </p>
 
         {task.important && (
-          <span className="absolute bottom-0 left-0 rounded-b text-zinc-800 font-medium w-full text-center bg-yellow-500">
+          <span className="absolute bottom-0 left-0 text-xl mobile:text-lg rounded-b text-zinc-800 font-medium w-full text-center bg-yellow-500">
             Importante
           </span>
         )}
 
         {task.complete && (
-          <span className="absolute bottom-0 left-0 rounded-b text-zinc-800 font-medium w-full text-center bg-zinc-700 border-t border-zinc-600">
+          <span className="absolute bottom-0 left-0 text-xl mobile:text-lg rounded-b text-zinc-800 font-medium w-full text-center bg-zinc-700 border-t border-zinc-600">
             completo
           </span>
         )}
