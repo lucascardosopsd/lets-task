@@ -11,7 +11,7 @@ const ProtectRoute = ({ children }: { children: ReactNode }) => {
     return children;
   }
 
-  redirect("/tasks");
+  redirect("/");
 };
 
 export default ProtectRoute;
