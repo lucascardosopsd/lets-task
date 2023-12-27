@@ -26,7 +26,7 @@ const Modal = ({
       <form
         className={`flex transition ${
           isOpen ? "translate-y-0" : "-translate-y-[1000px]"
-        } absolute h-[600px] w-[600px] top-0 bottom-0 right-0 left-0 mx-auto my-auto flex-col gap-2 bg-zinc-900 rounded box !pb-0 z-10`}
+        } absolute mobile:h-[600px] mobile:w-[600px] top-0 bottom-0 right-0 left-0 mx-auto my-auto flex-col gap-2 bg-zinc-900 box mobile:!rounded !rounded-none !pb-0 z-50`}
         onSubmit={onSubmit}
       >
         <div className="relative flex justify-center border-b border-zinc-800 text-zinc-200 py-4">
@@ -39,7 +39,7 @@ const Modal = ({
           </MdClose>
           {header}
         </div>
-        <div className="h-[500px] overflow-y-auto p-4">{body}</div>
+        <div className="h-full overflow-y-auto p-4">{body}</div>
         <footer className="flex w-full justify-stretch">
           <button className="btn btn-secondary w-full" onClick={onClose}>
             Cancelar
