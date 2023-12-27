@@ -2,7 +2,7 @@
 
 import { TaskProps } from "@/types/task";
 import Modal from "./Modal";
-import TaskBody from "./formBodies/Task";
+import TaskBody from "./formBodies/CreateTask";
 import { notify } from "@/tools/notify";
 import createTask from "@/services/tasks/create";
 import { useEffect, useState } from "react";

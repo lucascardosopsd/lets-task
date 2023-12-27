@@ -6,13 +6,13 @@ import { useState } from "react";
 import { notify } from "@/tools/notify";
 import deleteTask from "@/services/tasks/delete";
 import { useTaskForm } from "@/validators/task";
-import TaskBody from "./formBodies/Task";
 import { FieldValues } from "react-hook-form";
 import updateTask from "@/services/tasks/update";
 import { IoClose } from "react-icons/io5";
 import { MdEdit } from "react-icons/md";
 import { FaCheck } from "react-icons/fa";
 import { FaArrowRotateLeft } from "react-icons/fa6";
+import UpdateTaskBody from "./formBodies/UpdateTask";
 
 const TaskCard = ({ task }: { task: TaskProps }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -122,13 +122,7 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
       {/* Update Modal */}
 
       <Modal
-        body={
-          <TaskBody
-            formState={formState}
-            register={register}
-            control={control}
-          />
-        }
+        body={<UpdateTaskBody formState={formState} register={register} />}
         onSubmit={handleSubmit(handleUpdateTask)}
         isOpen={isUpdateodalOpen}
         onClose={() => setIsUpdateModalOpen(false)}

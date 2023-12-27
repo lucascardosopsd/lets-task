@@ -9,13 +9,17 @@ import {
 } from "react-hook-form";
 import Checkbox from "../Checkbox";
 
-interface TaskBodyProps {
+interface CreateTaskBodyProps {
   register: UseFormRegister<any>;
   formState: FormState<FieldValues>;
   control: Control<any>;
 }
 
-const TaskBody = ({ register, formState, control }: TaskBodyProps) => {
+const CreateTaskBody = ({
+  register,
+  formState,
+  control,
+}: CreateTaskBodyProps) => {
   const { errors } = formState;
 
   return (
@@ -59,4 +63,4 @@ const TaskBody = ({ register, formState, control }: TaskBodyProps) => {
   );
 };
 
-export default TaskBody;
+export default CreateTaskBody;
