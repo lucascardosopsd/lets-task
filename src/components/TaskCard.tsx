@@ -1,7 +1,7 @@
 "use client";
 import { TaskProps } from "@/types/task";
 import Modal from "./Modal";
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import { notify } from "@/tools/notify";
 import deleteTask from "@/services/tasks/delete";
 import { useTaskForm } from "@/validators/task";
@@ -58,18 +58,19 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
 
   const handleToggleImportantTask = async () => {
     try {
-      await updateTask({ ...task, complete: !task.complete }, task?._id);
+      await updateTask({ ...task, important: !task.important }, task?._id);
     } catch (error) {
       notify("error", "Erro ao atualizar tarefa");
     }
   };
 
+  const handleOpenUpdateModal = async (e: MouseEvent<HTMLElement>) => {
+    setIsUpdateModalOpen(true);
+  };
+
   return (
     <>
-      <div
-        className="w-full h-56 mobile:h-48 mobile:w-48 box p-4 text-zinc-100 relative hover:!border-green-500 transition cursor-pointer"
-        onClick={() => setIsUpdateModalOpen(true)}
-      >
+      <div className="w-full h-56 mobile:h-48 mobile:w-48 box p-4 text-zinc-100 relative hover:!border-green-500 transition cursor-pointer">
         <div className="w-full flex justify-end gap-4 mobile:gap-2">
           <span className="flex items-center justify-center">
             <span
@@ -101,33 +102,36 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
             )}
           </span>
         </div>
-
-        <div
-          className={`text-green-500 text-xl mobile:text-lg ${
-            task.complete && "text-zinc-700"
-          }`}
+        <span
+          onClick={(e: MouseEvent<HTMLElement>) => handleOpenUpdateModal(e)}
         >
-          {task.title}
-        </div>
-        <p
-          className={`line-clamp-1 break-all ${
-            task.complete && "text-zinc-700"
-          }`}
-        >
-          {task.description}
-        </p>
+          <div
+            className={`text-green-500 text-xl mobile:text-lg ${
+              task.complete && "text-zinc-700"
+            }`}
+          >
+            {task.title}
+          </div>
+          <p
+            className={`line-clamp-1 break-all ${
+              task.complete && "text-zinc-700"
+            }`}
+          >
+            {task.description}
+          </p>
 
-        {task.important && (
-          <span className="absolute bottom-0 left-0 text-xl mobile:text-lg rounded-b text-zinc-100 font-medium w-full text-center bg-green-500">
-            Importante
-          </span>
-        )}
+          {task.important && (
+            <span className="absolute bottom-0 left-0 text-xl mobile:text-lg rounded-b text-zinc-100 font-medium w-full text-center bg-green-500">
+              Importante
+            </span>
+          )}
 
-        {task.complete && (
-          <span className="absolute bottom-0 left-0 text-xl mobile:text-lg rounded-b text-zinc-800 font-medium w-full text-center bg-zinc-700 border-t border-zinc-600">
-            completo
-          </span>
-        )}
+          {task.complete && (
+            <span className="absolute bottom-0 left-0 text-xl mobile:text-lg rounded-b text-zinc-800 font-medium w-full text-center bg-zinc-700 border-t border-zinc-600">
+              completo
+            </span>
+          )}
+        </span>
       </div>
       {/* Update Modal */}
 
