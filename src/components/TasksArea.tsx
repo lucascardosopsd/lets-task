@@ -67,7 +67,11 @@ const TasksArea = ({ data }: TasksAreaProps) => {
       </button>
       {!filtered.length && currentLabel == "all"
         ? data
-            .sort((a, b) => Number(b.important) - Number(a.important))
+            .sort(
+              (a, b) =>
+                Number(a.complete) - Number(b.complete) ||
+                Number(b.important) - Number(a.important)
+            )
             .map((task, index) => <TaskCard task={task} key={index} />)
         : filtered.map((task, index) => <TaskCard task={task} key={index} />)}
       <Modal
