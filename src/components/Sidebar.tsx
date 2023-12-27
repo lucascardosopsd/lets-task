@@ -19,7 +19,7 @@ const Sidebar = () => {
   return (
     <>
       <div
-        className={`absolute top-2 left-2 bg-zinc-800 flex items-center text-zinc-600 p-2 rounded-md tablet:hidden transition${
+        className={`absolute top-2 left-2 bg-zinc-800 flex items-center text-zinc-600 p-2 rounded-md tablet:hidden transition z-20 ${
           isOpen ? "hidden tablet:visible" : "visible"
         } `}
         onClick={toggle}

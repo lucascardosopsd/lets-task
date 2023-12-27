@@ -55,7 +55,7 @@ const Modal = ({
         </footer>
       </form>
       <div
-        className={`h-full w-full bg-black bg-opacity-40 top-0 left-0 absolute ${
+        className={`h-full w-full bg-black bg-opacity-40 top-0 left-0 absolute pointer-events-none ${
           !isOpen ? "hidden" : "block"
         }`}
         onClick={onClose}

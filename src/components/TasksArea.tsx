@@ -56,8 +56,8 @@ const TasksArea = ({ data }: TasksAreaProps) => {
   };
 
   return (
-    <div className="flex  h-full w-full items-start justify-start relative">
-      <div className="flex flex-wrap p-4 gap-4">
+    <>
+      <div className="flex flex-wrap justify-center mobile:justify-start p-4 gap-4 h-screen overflow-y-auto">
         <button
           onClick={() => setIsModalOpen(true)}
           className="flex items-center justify-center rounded text-zinc-600 border border-zinc-600 h-48 w-48 text-6xl font-extralight hover:border-green-500 hover:text-green-500 transition"
@@ -83,7 +83,7 @@ const TasksArea = ({ data }: TasksAreaProps) => {
         onClose={() => setIsModalOpen(false)}
         header="Criar nova tarefa"
       />
-    </div>
+    </>
   );
 };
 

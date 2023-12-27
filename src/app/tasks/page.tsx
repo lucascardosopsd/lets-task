@@ -5,7 +5,7 @@ export default async function Home() {
   const tasks = await getTasks({});
 
   return (
-    <div className="flex flex-col h-full w-full relative">
+    <div className="flex flex-col h-full w-full">
       <TasksArea data={tasks} />
     </div>
   );
