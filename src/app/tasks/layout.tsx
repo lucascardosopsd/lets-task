@@ -1,4 +1,3 @@
-"use client";
 import ProtectRoute from "@/components/ProtectRoute";
 import Sidebar from "@/components/Sidebar";
 import { ReactNode } from "react";
