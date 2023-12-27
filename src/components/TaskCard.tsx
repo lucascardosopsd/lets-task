@@ -45,6 +45,14 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
     }
   };
 
+  const handleCompleteTask = async () => {
+    try {
+      await updateTask({ ...task, complete: true }, task?._id);
+    } catch (error) {
+      notify("error", "Erro ao atualizar tarefa");
+    }
+  };
+
   return (
     <>
       <div className="w-full h-56 mobile:h-48 mobile:w-48 box p-4 text-zinc-100 relative hover:!border-green-500 transition">
@@ -52,6 +60,10 @@ const TaskCard = ({ task }: { task: TaskProps }) => {
           <span
             className="h-6 w-6 mobile:w-4 mobile:h-4 rounded-full bg-yellow-500 hover:bg-yellow-800 cursor-pointer transition"
             onClick={() => setIsUpdateModalOpen(true)}
+          />
+          <span
+            className="h-6 w-6 mobile:w-4 mobile:h-4 rounded-full bg-green-500 hover:bg-green-800 cursor-pointer transition"
+            onClick={() => handleCompleteTask()}
           />
           <span
             className="h-6 w-6 mobile:w-4 mobile:h-4 rounded-full bg-red-500 hover:bg-red-800 cursor-pointer transition"
