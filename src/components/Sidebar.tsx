@@ -62,7 +62,7 @@ const Sidebar = () => {
           className="flex items-center gap-1 w-full px-10 hover:text-green-500 cursor-pointer"
           onClick={() => signOut()}
         >
-          <MdOutlineLogout size="40" />
+          <MdOutlineLogout className="text-4xl mobile:text-xl" />
           <p className="text-xl mobile:text-lg">Sair</p>
         </div>
       </div>
