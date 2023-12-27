@@ -3,7 +3,7 @@ import useSidebarStore from "@/context/sidebar";
 import { IconType } from "react-icons";
 
 interface NavbarLinkProps {
-  label: string;
+  label: "important" | "all" | "now";
   title: string;
   Icon: IconType;
   classname?: string;
@@ -21,7 +21,7 @@ const NavbarLink = ({ Icon, title, label }: NavbarLinkProps) => {
       }`}
       onClick={() => setLabel(label)}
     >
-      <Icon size="20" />
+      <Icon className="text-4xl mobile:text-xl" />
       <div>{title}</div>
     </div>
   );

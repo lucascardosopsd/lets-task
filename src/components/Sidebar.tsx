@@ -33,12 +33,12 @@ const Sidebar = () => {
       >
         <span className="flex items-center justify-center w-full">
           <MdChevronLeft
-            size="25"
+            size="40"
             className="text-zinc-700 mobile:hidden absolute right-2 top-2"
             onClick={toggle}
           />
           <div className="flex flex-col gap-2 items-center relative">
-            <div className="relative h-16 w-16">
+            <div className="relative h-32 w-32 mobile:h-16 mobile:w-16">
               <Image
                 src={session?.user?.image ?? "/images/fake-user.jpg"}
                 className="rounded-full object-cover h-full w-full border border-green-500"
@@ -59,11 +59,11 @@ const Sidebar = () => {
         </ul>
 
         <div
-          className="flex gap-1 w-full px-10 hover:text-green-500 cursor-pointer"
+          className="flex items-center gap-1 w-full px-10 hover:text-green-500 cursor-pointer"
           onClick={() => signOut()}
         >
-          <MdOutlineLogout size="20" />
-          <p>Sair</p>
+          <MdOutlineLogout size="40" />
+          <p className="text-xl mobile:text-lg">Sair</p>
         </div>
       </div>
     </>
