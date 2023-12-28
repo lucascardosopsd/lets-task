@@ -75,14 +75,17 @@ const TasksArea = ({ data }: TasksAreaProps) => {
 
   useEffect(() => {
     if (currentLabel == "all") {
+      setArrayDelete([]);
       setFiltered([]);
     }
 
     if (currentLabel == "complete") {
+      setArrayDelete([]);
       setFiltered(data.filter((task: TaskProps) => task.complete));
     }
 
     if (currentLabel == "important") {
+      setArrayDelete([]);
       setFiltered(data.filter((task: TaskProps) => task.important));
     }
   }, [currentLabel]);
@@ -152,15 +155,17 @@ const TasksArea = ({ data }: TasksAreaProps) => {
           />
         ))}
 
-      {(filtered.length || arrayDelete.length) &&
-        currentLabel == "all" &&
+      {filtered.length ? (
         filtered.map((task, index) => (
           <TaskCard
             task={task}
             handleScheduleToDelete={() => handleScheduleToDelete(task)}
             key={index}
           />
-        ))}
+        ))
+      ) : (
+        <></>
+      )}
 
       <Modal
         loading={loading}
