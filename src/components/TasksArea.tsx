@@ -118,10 +118,10 @@ const TasksArea = ({ data }: TasksAreaProps) => {
             ? setIsModalOpen(true)
             : handleConfirmDeleteTasks()
         }
-        className={`absolute flex items-center justify-center right-2 bottom-2 h-24 w-24 rounded-full border border-green-500 z-40 text-green-500 text-4xl mobile:hidden ${
+        className={`absolute flex items-center justify-center right-2 bottom-2 h-24 w-24 rounded-full border border-green-500 z-40 text-green-500 bg-zinc-950 text-4xl mobile:hidden ${
           arrayDelete.length &&
           "!w-full !h-16 !right-0 !bottom-0 text-2xl rounded-none bg-red-600 text-red-950 border-none "
-        }`}
+        } ${arrayDelete.length && "!hidden"}`}
       >
         {!arrayDelete.length ? "+" : "Confirmar"}
       </button>
