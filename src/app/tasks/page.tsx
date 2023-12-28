@@ -7,7 +7,7 @@ export default async function Home() {
   const parsedTasks = JSON.parse(tasks);
 
   return (
-    <div className="flex flex-1 flex-col h-full w-full relative">
+    <div className="flex flex-1 flex-col h-full w-full relative overflow-hidden">
       <Header />
       <TasksArea data={parsedTasks} />
     </div>

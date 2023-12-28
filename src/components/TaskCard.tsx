@@ -92,14 +92,14 @@ const TaskCard = ({ task, handleScheduleToDelete }: TaskCardProps) => {
           onClick={(e: MouseEvent<HTMLElement>) => handleOpenUpdateModal(e)}
         >
           <div
-            className={`text-green-500 text-xl mobile:text-lg ${
+            className={`text-green-500 text-xl mobile:text-lg line-clamp-1 ${
               task.complete && "text-zinc-700"
             }`}
           >
             {task.title}
           </div>
           <p
-            className={`line-clamp-1 break-all ${
+            className={`break-all line-clamp-5 ${
               task.complete && "text-zinc-700"
             }`}
           >
