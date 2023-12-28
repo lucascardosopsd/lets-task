@@ -9,11 +9,11 @@ import { revalidatePath } from "next/cache";
 export default async function deleteTasksCompleted() {
   await connectDb();
 
-  const session = await getServerSession(authOptions);
-
-  const userId = await User.findOne({ email: session?.user?.email }, "id");
-
   try {
+    const session = await getServerSession(authOptions);
+
+    const userId = await User.findOne({ email: session?.user?.email }, "id");
+
     await Task.deleteMany({ complete: true, userId });
     revalidatePath("/tasks");
   } catch (error) {
