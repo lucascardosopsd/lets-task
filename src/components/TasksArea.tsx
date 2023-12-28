@@ -129,7 +129,7 @@ const TasksArea = ({ data }: TasksAreaProps) => {
       {/* Desktop Action Buttons */}
 
       <button
-        className="h-48 w-48 flex items-center justify-center rounded border border-zinc-600 text-zinc-600 group hover:border-green-500 text-6xl font-thin transition"
+        className="h-48 w-full mobile:w-48 flex items-center justify-center rounded border border-zinc-600 text-zinc-600 group hover:border-green-500 text-6xl font-thin transition"
         onClick={() => setIsModalOpen(true)}
       >
         <p className="group-hover:text-green-500">+</p>
