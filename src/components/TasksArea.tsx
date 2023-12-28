@@ -101,8 +101,6 @@ const TasksArea = ({ data }: TasksAreaProps) => {
     try {
       setLoading(true);
 
-      notify("info", "Cadastrando tarefa");
-
       await createTask(data);
 
       setIsModalOpen(false);
