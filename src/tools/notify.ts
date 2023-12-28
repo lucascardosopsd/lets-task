@@ -5,5 +5,5 @@ export const notify = (type: TypeOptions, message: string) =>
     type,
     theme: "dark",
     position: "bottom-right",
-    autoClose: 1.5,
+    autoClose: 1000,
   });
