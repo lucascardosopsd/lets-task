@@ -2,11 +2,13 @@
 import { connectDb } from "@/lib/mongoDb";
 import Task from "@/schemas/task";
 
-export default async function deleteTask(_id: string) {
+export default async function deleteManyTasks(ids: string[]) {
   await connectDb();
 
   try {
-    await Task.findByIdAndDelete({ _id });
+    await Task.deleteMany({
+      _id: { $in: ids },
+    });
   } catch (error) {
     console.log(error);
     throw new Error("Erro when delete task.");
