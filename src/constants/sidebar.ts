@@ -1,7 +1,12 @@
 import { IconType } from "react-icons";
-import { MdCheck, MdHome, MdNotificationImportant } from "react-icons/md";
+import {
+  MdCheck,
+  MdHome,
+  MdNotificationImportant,
+  MdIndeterminateCheckBox,
+} from "react-icons/md";
 
-export type labelOptions = "all" | "important" | "now" | "complete";
+export type labelOptions = "all" | "important" | "common" | "complete";
 
 interface SidebarLink {
   label: labelOptions;
@@ -21,13 +26,13 @@ export const sidebarLinks: SidebarLink[] = [
     icon: MdNotificationImportant,
   },
   {
+    label: "common",
+    title: "Comuns",
+    icon: MdIndeterminateCheckBox,
+  },
+  {
     label: "complete",
     title: "Feito",
     icon: MdCheck,
   },
-  // {
-  //   label: "now",
-  //   title: "Hoje!",
-  //   icon: MdBolt,
-  // },
 ];

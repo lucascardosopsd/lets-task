@@ -84,6 +84,13 @@ const TasksArea = ({ data }: TasksAreaProps) => {
       setFiltered(data.filter((task: TaskProps) => task.complete));
     }
 
+    if (currentLabel == "common") {
+      setArrayDelete([]);
+      setFiltered(
+        data.filter((task: TaskProps) => !task.complete && !task.important)
+      );
+    }
+
     if (currentLabel == "important") {
       setArrayDelete([]);
       setFiltered(data.filter((task: TaskProps) => task.important));
