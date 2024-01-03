@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Lets Task
 
-First, run the development server:
+Gerenciador de tarefas web que possibilita fazer CRUD das tarefas, marcar como importante e como concluida. construído com Next.js e autenticação google.
+![enter image description here](https://i.imgur.com/R5OEiZa.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🗄️Hosting
+https://letstask.vercel.app/
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Começando
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### 📋 Pré-requisitos
+ - Node.js 21
+ - Yarn
+ - Conta Google
+ - Navegador
 
-## Learn More
+### 🔧 Instalação
 
-To learn more about Next.js, take a look at the following resources:
+ 1. Baixe o repositório com o comando `git clone https://github.com/lucascardosopsd/letstask.git`
+ 2. Na pasta, abra o terminal e instale as dependências com o comando `yarn`
+ 3. Crie um arquivo .env e coloque o seguite
+ `GOOGLE_CLIENT_ID="265429101805-q7losb1b39q00ian638ve660t94o2q3q.apps.googleusercontent.com"`
+ `GOOGLE_CLIENT_SECRET="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"`
+`MONGODB_URI="mongodb+srv://lucascardosopsd:NtioQDGVP9COYTv1@cluster0.1k6nyqb.mongodb.net/dev?retryWrites=true&w=majority"`
+`SECRET=habH*&S*Abs8&gs*alsJ`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ⚙️ Funções
+- Criar nova tarefa: Clique no icone de "+" e preencha o titulo e a descrição
+- Salvar tarefa: Quando o modal de criação da tarefa for fechado, ela será automaticamente salva
+- Outras ações
+![enter image description here](https://i.imgur.com/JFUhlA6.png)
+- Exclamação: Marcar como importante
+- X: Excluir
+- Check: Marcar como concluído
+## 🛠️ Construído com
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Mencione as ferramentas que você usou para criar seu projeto
+* [Typescript](https://www.typescriptlang.org/) - Superset Javascript
+* [Nextjs](https://nextjs.org/) - Framework Web React
+* [NextAuth.js](https://next-auth.js.org/) - Autenticação
+* [MongoDb](https://www.mongodb.com/pt-br) - Banco de dados
+* [Mongoose](https://mongoosejs.com/) - ORM
+* [Zustand](https://zustand-demo.pmnd.rs/) - Gerenciador de estados
+* [Rect Hook Form](https://react-hook-form.com/) - Construtor de formulários
+* [Yup](https://github.com/jquense/yup) - Validador de formulários
+* [React Icons](https://react-icons.github.io/react-icons/) - Biblioteca de Icones
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+⌨️ com ❤️ por [Lucas Cardoso](https://lucascardoso.vercel.app/) 😊
