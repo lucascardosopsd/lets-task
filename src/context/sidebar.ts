@@ -1,11 +1,13 @@
 import { create } from "zustand";
 
 interface SidebarStoreState {
-  currentLabel: "all" | "important" | "complete" | "common";
+  currentLabel: "all" | "important" | "complete" | "common" | string;
 }
 
 interface SidebarStoreActions {
-  setLabel: (label: "all" | "important" | "complete" | "common") => void;
+  setLabel: (
+    label: "all" | "important" | "complete" | "common" | string
+  ) => void;
 }
 
 const useSidebarStore = create<SidebarStoreState & SidebarStoreActions>(

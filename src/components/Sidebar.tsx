@@ -1,11 +1,13 @@
 "use client";
-
 import { sidebarLinks } from "@/constants/sidebar";
 import Image from "next/image";
 import { MdChevronLeft, MdChevronRight, MdOutlineLogout } from "react-icons/md";
 import SidebarLink from "./SidebarLink";
 import { useState } from "react";
 import { signOut, useSession } from "next-auth/react";
+import deleteTasksCompleted from "@/services/tasks/deleteComplete";
+import { notify } from "@/tools/notify";
+import { FaCheckDouble } from "react-icons/fa";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +16,12 @@ const Sidebar = () => {
 
   const toggle = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleDeleteComplete = async () => {
+    notify("info", "Apagando completos");
+    await deleteTasksCompleted();
+    notify("success", "Apagados");
   };
 
   return (
@@ -52,10 +60,17 @@ const Sidebar = () => {
 
         <ul className="gap-8 w-full">
           {sidebarLinks.map(({ icon, label, title }, index) => (
-            <span onClick={toggle} key={index}>
+            <li onClick={toggle} key={index}>
               <SidebarLink Icon={icon} title={title} label={label} />
-            </span>
+            </li>
           ))}
+          <li onClick={toggle}>
+            <SidebarLink
+              Icon={FaCheckDouble}
+              label="deleteComplete"
+              title="Deletar completos"
+            />
+          </li>
         </ul>
 
         <div

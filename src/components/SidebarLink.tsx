@@ -4,7 +4,7 @@ import useSidebarStore from "@/context/sidebar";
 import { IconType } from "react-icons";
 
 interface NavbarLinkProps {
-  label: labelOptions;
+  label: labelOptions | string;
   title: string;
   Icon: IconType;
   classname?: string;
