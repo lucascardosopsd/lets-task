@@ -9,8 +9,9 @@ import updateTask from "@/services/tasks/update";
 import { IoClose } from "react-icons/io5";
 import { FaCheck } from "react-icons/fa";
 import { FaArrowRotateLeft } from "react-icons/fa6";
-import UpdateTaskBody from "./formBodies/UpdateTask";
+import UpdateTaskBody from "./formBodies/UpdateTaskBody";
 import { FaExclamation } from "react-icons/fa6";
+import UpdateTaskHeader from "./formBodies/UpdateTaskHeader";
 
 interface TaskCardProps {
   handleScheduleToDelete: (_id: string) => void;
@@ -126,7 +127,7 @@ const TaskCard = ({ task, handleScheduleToDelete }: TaskCardProps) => {
         onSubmit={handleSubmit(handleUpdateTask)}
         isOpen={isUpdateodalOpen}
         onClose={() => setIsUpdateModalOpen(false)}
-        header="Atualizar tarefa"
+        header={<UpdateTaskHeader formState={formState} register={register} />}
       />
     </>
   );

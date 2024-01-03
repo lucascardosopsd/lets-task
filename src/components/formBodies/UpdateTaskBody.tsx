@@ -11,15 +11,12 @@ const UpdateTaskBody = ({ register, formState }: UpdateTaskBodyProps) => {
 
   return (
     <div className="flex flex-col h-full w-full gap-4 text-zinc-100">
-      <div>
-        <p>Título</p>
-        <input type="text" {...register("title")} />
-        <p className="text-sm">{errors.title?.message as string}</p>
-      </div>
-
-      <div>
-        <p>Descrição</p>
-        <textarea {...register("description")} />
+      <div className="h-svh">
+        <textarea
+          {...register("description")}
+          className="h-full"
+          placeholder="Descrição"
+        />
         <p className="text-sm">{errors.title?.message as string}</p>
       </div>
     </div>

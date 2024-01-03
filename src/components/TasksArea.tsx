@@ -8,8 +8,9 @@ import useSidebarStore from "@/context/sidebar";
 import deleteManyTasks from "@/services/tasks/deleteManyTasks";
 import TaskCard from "./TaskCard";
 import Modal from "./Modal";
-import UpdateTaskBody from "./formBodies/UpdateTask";
+import UpdateTaskBody from "./formBodies/UpdateTaskBody";
 import BulkDeleteBar from "./BulkDeleteBar";
+import UpdateTaskHeader from "./formBodies/UpdateTaskHeader";
 
 interface TasksAreaProps {
   data: TaskProps[];
@@ -178,7 +179,7 @@ const TasksArea = ({ data }: TasksAreaProps) => {
         onSubmit={handleSubmit(handleNewTask)}
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        header="Criar nova tarefa"
+        header={<UpdateTaskHeader formState={formState} register={register} />}
       />
     </div>
   );
