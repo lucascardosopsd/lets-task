@@ -36,8 +36,6 @@ Essas instruções permitirão que você obtenha uma cópia do projeto em opera�
 - X: Excluir
 - Check: Marcar como concluído
 ## 🛠️ Construído com
-
-Mencione as ferramentas que você usou para criar seu projeto
 * [Typescript](https://www.typescriptlang.org/) - Superset Javascript
 * [Nextjs](https://nextjs.org/) - Framework Web React
 * [NextAuth.js](https://next-auth.js.org/) - Autenticação
